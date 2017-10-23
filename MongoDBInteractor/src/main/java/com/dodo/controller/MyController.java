@@ -20,7 +20,9 @@ public class MyController {
 	public String hello() {
 		return "homePage";
 	}
-
+	
+	//TODO no mapping has to be provided .... only internal implementation for storing data
+	
 	@RequestMapping(value = "/storeData", method = RequestMethod.POST)
 	public @ResponseBody String storeData(@RequestBody ProductTransactionData productTransactionData) {
 		mongoServiceManager.saveProductData(productTransactionData);

@@ -1,39 +1,52 @@
 package com.dodo.entity;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@Document(collection = "zips")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductTransactionData {
 
 	@Id
-	String productId;
-
-	String productDescription;
-
-	String tags;
-
-	public String getProductId() {
-		return productId;
+	String _id;
+	String city;
+	List<Double> loc;
+	String pop;
+	String state;
+	public String get_id() {
+		return _id;
 	}
-
-	public void setProductId(String productId) {
-		this.productId = productId;
+	public void set_id(String _id) {
+		this._id = _id;
 	}
-
-	public String getProductDescription() {
-		return productDescription;
+	public String getCity() {
+		return city;
 	}
-
-	public void setProductDescription(String productDescription) {
-		this.productDescription = productDescription;
+	public void setCity(String city) {
+		this.city = city;
 	}
-
-	public String getTags() {
-		return tags;
+	public List<Double> getLoc() {
+		return loc;
 	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
+	public void setLoc(List<Double> loc) {
+		this.loc = loc;
 	}
+	public String getPop() {
+		return pop;
+	}
+	public void setPop(String pop) {
+		this.pop = pop;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	
+	
 }
