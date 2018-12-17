@@ -6,6 +6,6 @@ import com.dodo.entity.Product;
 
 public interface ProductRepository extends SolrCrudRepository<Product, String> {
 
-	List<Product> findByNameStartingWith(String name);
+	List<Product> findByProductNameStartingWith(String productName);
 
 }

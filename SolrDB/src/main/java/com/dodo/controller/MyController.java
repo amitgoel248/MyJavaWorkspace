@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.dodo.entity.Advertisement;
 import com.dodo.entity.Product;
 import com.dodo.service.SolrServiceManager;
 
@@ -36,5 +37,12 @@ public class MyController {
 	public @ResponseBody List<Product> fetchData(@RequestParam String prefix) {
 		return solrServiceManager.fetchData(prefix);
 	}
+	
+	@RequestMapping(value = "/storeAdd", method = RequestMethod.POST)
+	public @ResponseBody String storeData(@RequestBody Advertisement productTransactionData) {
+		solrServiceManager.saveAdd(productTransactionData);
+		return "Advertisement saved successfully";
+	}
+	
 
 }

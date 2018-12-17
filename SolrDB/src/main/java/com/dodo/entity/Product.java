@@ -3,83 +3,82 @@ package com.dodo.entity;
 import java.util.List;
 
 import org.apache.solr.client.solrj.beans.Field;
-
 import org.springframework.data.annotation.Id;
-import org.springframework.data.solr.core.geo.Point;
 import org.springframework.data.solr.core.mapping.SolrDocument;
 
-@SolrDocument(solrCoreName = "gettingstarted")
+@SolrDocument(solrCoreName = "products")
 public class Product {
 
 	@Id
 	@Field
-	private String id;
-
+	private String productId;
 	@Field
-	private String name;
-
+	private String brandName;
 	@Field
-	private Double price;
+	private String productName;
+	@Field
+	private String imageUrl;
+	@Field
+	private String description;
+	@Field
+	private List<String> tags;
+	@Field
+	private List<String> highLights;
 
-	@Field("cat")
-	private List<String> category;
-
-	@Field("store")
-	private Point location;
-
-	public Product() {
+	public String getProductId() {
+		return productId;
 	}
 
-	public Product(String id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
+	public void setProductId(String productId) {
+		this.productId = productId;
 	}
 
-	public String getId() {
-		return this.id;
+	public String getBrandName() {
+		return brandName;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setBrandName(String brandName) {
+		this.brandName = brandName;
 	}
 
-	public String getName() {
-		return this.name;
+	public String getProductName() {
+		return productName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
-	public Double getPrice() {
-		return this.price;
+	public String getImageUrl() {
+		return imageUrl;
 	}
 
-	public void setPrice(Double price) {
-		this.price = price;
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
-	public List<String> getCategory() {
-		return this.category;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setCategory(List<String> category) {
-		this.category = category;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public Point getLocation() {
-		return this.location;
+	public List<String> getTags() {
+		return tags;
 	}
 
-	public void setLocation(Point location) {
-		this.location = location;
+	public void setTags(List<String> tags) {
+		this.tags = tags;
 	}
 
-	@Override
-	public String toString() {
-		return "Product [id=" + this.id + ", name=" + this.name + ", price=" + this.price
-				+ ", category=" + this.category + ", location=" + this.location + "]";
+	public List<String> getHighLights() {
+		return highLights;
+	}
+
+	public void setHighLights(List<String> highLights) {
+		this.highLights = highLights;
 	}
 
 }
